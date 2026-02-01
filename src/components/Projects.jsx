@@ -71,7 +71,7 @@ const ProjectCard = ({ project, index }) => {
 const Projects = ({ projects = [] }) => {
   return (
     <div className="projects-section">
-      <h2 className="projects-title">My Projects</h2>
+      <h2 className="projects-title">Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />
