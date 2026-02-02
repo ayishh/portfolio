@@ -82,6 +82,14 @@ export const ChromaGrid = ({
       borderColor: '#ED8B00',
       gradient: 'linear-gradient(160deg, #ED8B00, #000)',
       url: 'https://www.java.com/'
+    },
+    {
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+      title: 'SQL',
+      subtitle: 'Database Language',
+      borderColor: '#4479A1',
+      gradient: 'linear-gradient(180deg, #4479A1, #000)',
+      url: 'https://en.wikipedia.org/wiki/SQL'
     }
   ];
   const data = items?.length ? items : programmingLanguages;
