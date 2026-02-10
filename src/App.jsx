@@ -3,10 +3,11 @@ import PillNav from './components/PillNav';
 import DarkModeToggle from './components/DarkModeToggle';
 import ChromaGrid from './components/ChromaGrid';
 import Projects from './components/Projects';
-import logo from './assets/logo.png';
 import projectVideo1 from './assets/CMPSC442-Project-3-Q1.mp4';
 import projectVideo2 from './assets/CMPSC442-Project-3-Q2.mp4';
 import projectVideo3 from './assets/CMPSC443-Project-3-Q1.mp4';
+
+const logo = './public/logo (2).png';;
 
 const projectsData = [
   {

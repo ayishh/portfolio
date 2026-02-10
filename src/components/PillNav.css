@@ -61,7 +61,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: invert(1);
   }
   
   .pill-list {
