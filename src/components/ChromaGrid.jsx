@@ -18,81 +18,81 @@ export const ChromaGrid = ({
   const setY = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
 
-  const programmingLanguages = [
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-      title: 'Python',
-      subtitle: 'Programming Language',
-      borderColor: '#3776AB',
-      gradient: 'linear-gradient(145deg, #3776AB, #000)',
-      url: 'https://www.python.org/'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
-      title: 'C',
-      subtitle: 'Programming Language',
-      borderColor: '#A8B9CC',
-      gradient: 'linear-gradient(210deg, #A8B9CC, #000)',
-      url: 'https://en.wikipedia.org/wiki/C_(programming_language)'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
-      title: 'C++',
-      subtitle: 'Programming Language',
-      borderColor: '#00599C',
-      gradient: 'linear-gradient(165deg, #00599C, #000)',
-      url: 'https://isocpp.org/'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-      title: 'HTML',
-      subtitle: 'Markup Language',
-      borderColor: '#E34F26',
-      gradient: 'linear-gradient(195deg, #E34F26, #000)',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-      title: 'CSS',
-      subtitle: 'Styling Language',
-      borderColor: '#1572B6',
-      gradient: 'linear-gradient(225deg, #1572B6, #000)',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-      title: 'JavaScript',
-      subtitle: 'Programming Language',
-      borderColor: '#F7DF1E',
-      gradient: 'linear-gradient(135deg, #F7DF1E, #000)',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      title: 'React',
-      subtitle: 'JavaScript Framework',
-      borderColor: '#61DAFB',
-      gradient: 'linear-gradient(150deg, #61DAFB, #000)',
-      url: 'https://react.dev/'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-      title: 'Java',
-      subtitle: 'Programming Language',
-      borderColor: '#ED8B00',
-      gradient: 'linear-gradient(160deg, #ED8B00, #000)',
-      url: 'https://www.java.com/'
-    },
-    {
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-      title: 'SQL',
-      subtitle: 'Database Language',
-      borderColor: '#4479A1',
-      gradient: 'linear-gradient(180deg, #4479A1, #000)',
-      url: 'https://en.wikipedia.org/wiki/SQL'
-    }
-  ];
-  const data = items?.length ? items : programmingLanguages;
+  // const programmingLanguages = [
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  //     title: 'Python',
+  //     subtitle: 'Programming Language',
+  //     borderColor: '#3776AB',
+  //     gradient: 'linear-gradient(145deg, #3776AB, #000)',
+  //     url: 'https://www.python.org/'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
+  //     title: 'C',
+  //     subtitle: 'Programming Language',
+  //     borderColor: '#A8B9CC',
+  //     gradient: 'linear-gradient(210deg, #A8B9CC, #000)',
+  //     url: 'https://en.wikipedia.org/wiki/C_(programming_language)'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+  //     title: 'C++',
+  //     subtitle: 'Programming Language',
+  //     borderColor: '#00599C',
+  //     gradient: 'linear-gradient(165deg, #00599C, #000)',
+  //     url: 'https://isocpp.org/'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  //     title: 'HTML',
+  //     subtitle: 'Markup Language',
+  //     borderColor: '#E34F26',
+  //     gradient: 'linear-gradient(195deg, #E34F26, #000)',
+  //     url: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+  //     title: 'CSS',
+  //     subtitle: 'Styling Language',
+  //     borderColor: '#1572B6',
+  //     gradient: 'linear-gradient(225deg, #1572B6, #000)',
+  //     url: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  //     title: 'JavaScript',
+  //     subtitle: 'Programming Language',
+  //     borderColor: '#F7DF1E',
+  //     gradient: 'linear-gradient(135deg, #F7DF1E, #000)',
+  //     url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  //     title: 'React',
+  //     subtitle: 'JavaScript Framework',
+  //     borderColor: '#61DAFB',
+  //     gradient: 'linear-gradient(150deg, #61DAFB, #000)',
+  //     url: 'https://react.dev/'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+  //     title: 'Java',
+  //     subtitle: 'Programming Language',
+  //     borderColor: '#ED8B00',
+  //     gradient: 'linear-gradient(160deg, #ED8B00, #000)',
+  //     url: 'https://www.java.com/'
+  //   },
+  //   {
+  //     image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  //     title: 'SQL',
+  //     subtitle: 'Database Language',
+  //     borderColor: '#4479A1',
+  //     gradient: 'linear-gradient(180deg, #4479A1, #000)',
+  //     url: 'https://en.wikipedia.org/wiki/SQL'
+  //   }
+  // ];
+  // const data = items?.length ? items : programmingLanguages;
 
   useEffect(() => {
     const el = rootRef.current;
@@ -160,7 +160,7 @@ export const ChromaGrid = ({
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
     >
-      {data.map((c, i) => (
+      {items.map((c, i) => (
         <article
           key={i}
           className="chroma-card"
@@ -179,8 +179,9 @@ export const ChromaGrid = ({
               <div className="chroma-icon-placeholder">{c.title.charAt(0)}</div>
             )}
           </div>
-          <footer className="chroma-info">
+          <footer className="chroma-info" >
             <h3 className="name">{c.title}</h3>
+            <p className="subtitle">{c.subtitle}</p>
           </footer>
         </article>
       ))}

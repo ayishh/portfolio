@@ -1,7 +1,8 @@
   .chroma-grid {
     position: relative;
     width: 100%;
-    min-height: 320px;
+    /* min-height: 320px; */
+    min-height: auto;
     display: grid;
     grid-template-columns: repeat(var(--cols, 3), 160px);
     grid-auto-rows: auto;
@@ -114,6 +115,7 @@
     color: #fff;
     font-family: system-ui, sans-serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 0.875rem;
@@ -124,6 +126,14 @@
     font-weight: 600;
     margin: 0;
     text-align: center;
+  }
+
+  .chroma-info .subtitle {
+    padding-top: 0.3rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    line-height: 1;
+    white-space: nowrap; /* Keeps subtitle on one line if possible */
   }
   
   .chroma-overlay {
