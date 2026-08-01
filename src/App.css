@@ -1,6 +1,7 @@
 .App {
   min-height: 100vh;
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
+  background-color: #0b0f17;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }

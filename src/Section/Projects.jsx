@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import './Projects.css';
+import { projectsData } from '../data/project.js'; // 1. Import your data
 
 const ProjectCard = ({ project, index }) => {
   const videoRef = useRef(null);
@@ -35,6 +36,12 @@ const ProjectCard = ({ project, index }) => {
     }
   };
 
+  // Helper to format dynamic CSS classes (e.g., "Class Project" -> "project-tag-class-project")
+  const getTagClass = (tag) => {
+    return `project-tag project-tag-${tag.toLowerCase().replace(/\s+/g, '-')}`;
+  };
+        
+
   return (
     <div 
       key={index} 
@@ -59,8 +66,12 @@ const ProjectCard = ({ project, index }) => {
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
         <div className="project-tags">
-          <span className="project-tag project-tag-class">Class Project</span>
-          <span className="project-tag project-tag-ai">AI</span>
+          {/* <span className="project-tag project-tag-class">Class Project</span> */}
+          {project.tags.map((tag, index) => (
+            <span key={index} className={getTagClass(tag)}>
+              {tag}
+            </span>
+          ))}
         </div>
         <p className="project-description">{project.description}</p>
       </div>
@@ -68,7 +79,7 @@ const ProjectCard = ({ project, index }) => {
   );
 };
 
-const Projects = ({ projects = [] }) => {
+const Projects = ({ projects = projectsData }) => {
   return (
     <div className="projects-section">
       <h2 className="projects-title">Projects</h2>

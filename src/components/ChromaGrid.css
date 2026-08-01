@@ -42,9 +42,10 @@
     height: auto;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
+    border: 1px solid #30363d;
     transition: border-color 0.3s ease, background 0.3s ease;
-    background: #4a4a4a;
+    background: #161b22;
   
     --mouse-x: 50%;
     --mouse-y: 50%;
