@@ -1,7 +1,16 @@
 .projects-section {
-  padding: 60px 2rem 4rem;
-  max-width: 1400px;
+  /* padding: 60px 2rem 4rem; */
+  /* padding: 2rem 2rem 4rem; */
+  min-height: 100vh;
+  min-height: 100dvh; /* For mobile browsers to prevent URL bar jump bugs */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: 70%; */
   margin: 0 auto;
+  padding: 1rem 3rem 4rem;
+  /* max-width: 1400px; */
+  margin: 0 auto;
+  /* transform-origin: center; */
 }
 
 .projects-title {
@@ -15,7 +24,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -46,7 +55,7 @@
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
   color: var(--text-color);
@@ -59,25 +68,7 @@
   flex-wrap: wrap;
 }
 
-/* .project-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: opacity 0.3s ease;
-} */
 
-/* .project-tag-class {
-  background-color: #4a90e2;
-  color: #ffffff;
-}
-
-.project-tag-ai {
-  background-color: #ff6b6b;
-  color: #ffffff;
-} */
 
 .project-tag:hover {
   opacity: 0.85;
