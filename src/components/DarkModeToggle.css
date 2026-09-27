@@ -1,3 +1,5 @@
+/* Styles for the unused theme button. Change top/right to move it if enabled.
+   These dark rules recolor the button only, not the whole page. */
 .dark-mode-toggle {
   position: fixed;
   top: 20px;
@@ -45,4 +47,3 @@
 .dark .dark-mode-toggle:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-

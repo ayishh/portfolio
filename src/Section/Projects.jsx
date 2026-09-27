@@ -1,95 +1,104 @@
-import { useRef } from 'react';
-import './Projects.css';
-import { projectsData } from '../data/project.js'; // 1. Import your data
-
+// Card layout and video behavior. Edit the project content in src/data/project.js.
+import { useRef } from "react";
+import "./Projects.css";
+import { projectsData } from "../data/project.js";
 const ProjectCard = ({ project, index }) => {
   const videoRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Video is playing
-          })
-          .catch(err => {
-            console.log('Video play error:', err);
-            // Try loading first if not loaded
-            if (video.readyState < 2) {
-              video.load();
-              video.oncanplay = () => {
-                video.play().catch(e => console.log('Play after load error:', e));
-              };
-            }
-          });
-      }
-    }
+  // Start a muted preview when the card is hovered or reached with the keyboard.
+  const playPreview = () => {
+    videoRef.current?.play()?.catch(() => {
+      // Playback can be interrupted when the pointer leaves during loading.
+    });
   };
 
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0; // Reset to beginning
-    }
+  // Leaving the card stops the video and returns it to the beginning.
+  const resetPreview = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
   };
-
-  // Helper to format dynamic CSS classes (e.g., "Class Project" -> "project-tag-class-project")
-  const getTagClass = (tag) => {
-    return `project-tag project-tag-${tag.toLowerCase().replace(/\s+/g, '-')}`;
-  };
-        
 
   return (
-    <div 
-      key={index} 
-      className="project-card"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <article
+      className="project-card surface"
+      onMouseEnter={playPreview}
+      onMouseLeave={resetPreview}
+      onFocus={playPreview}
+      onBlur={resetPreview}
+      tabIndex={project.video ? 0 : undefined}
     >
-      <div className="project-video-container">
-        <video
-          ref={videoRef}
-          className="project-video"
-          src={project.video}
-          preload="auto"
-          muted
-          loop
-          playsInline
-          poster={project.poster}
-        >
-          Your browser does not support the video tag.
-        </video>
+      {/* Videos loop without controls. Add controls to the video tag to show player buttons. */}
+      {/* muted allows hover playback; playsInline keeps playback inside the card on phones. */}
+      <div className="project-media">
+        {project.video ? (
+          <video
+            ref={videoRef}
+            className="project-video"
+            src={project.video}
+            preload="metadata"
+            muted
+            playsInline
+            loop
+            poster={project.poster}
+            aria-label={project.title + " demonstration"}
+          >
+            Your browser does not support video playback.
+          </video>
+        ) : (
+          // Short names and the diamond below depend on the data array order. Update them if reordered.
+          <div className="project-placeholder" aria-hidden="true">
+            <span>
+              {["", "", "", "JUAL", "GRADECHAIN", "NittanyAI"][index] ||
+                project.title.split(":")[0]}
+            </span>
+            <span className="placeholder-symbol">
+              {index === 4 ? "\u25c7" : "</>"}
+            </span>
+            <span>Designed & developed</span>
+          </div>
+        )}
       </div>
       <div className="project-content">
-        <h3 className="project-title">{project.title}</h3>
+        <div className="project-meta">
+          <span>PROJECT {String(index + 1).padStart(2, "0")}</span>
+        </div>
+        <h3>{project.title}</h3>
         <div className="project-tags">
-          {/* <span className="project-tag project-tag-class">Class Project</span> */}
-          {project.tags.map((tag, index) => (
-            <span key={index} className={getTagClass(tag)}>
+          {project.tags.map((tag) => (
+            <span className="project-tag" key={tag}>
               {tag}
             </span>
           ))}
         </div>
-        <p className="project-description">{project.description}</p>
+        <p>{project.description}</p>
       </div>
-    </div>
+    </article>
   );
 };
-
-const Projects = ({ projects = projectsData }) => {
-  return (
-    <div className="projects-section">
-      <h2 className="projects-title">Projects</h2>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
-        ))}
+// Change the section heading below. Cards are created from the projects array.
+const Projects = ({ projects = projectsData }) => (
+  <section
+    className="projects-section section-shell"
+    id="projects"
+    aria-labelledby="projects-heading"
+  >
+    <div className="section-heading">
+      <div>
+        <p className="eyebrow">01 / Selected work</p>
+        <h2 id="projects-heading">Ideas, brought to life.</h2>
       </div>
+      <p>
+        A collection of experiments and applications across the web, AI, and
+        beyond.
+      </p>
     </div>
-  );
-};
-
+    <div className="projects-grid">
+      {projects.map((project, index) => (
+        <ProjectCard key={project.title} project={project} index={index} />
+      ))}
+    </div>
+  </section>
+);
 export default Projects;

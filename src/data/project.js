@@ -1,7 +1,12 @@
+// Add, remove, or reorder project objects here to change the project cards.
+// Each object needs a unique title, description, and tags array.
+// Import a local video below and use its variable as video. Use undefined for no video.
+// poster is an optional image URL shown before a video plays.
+// If you reorder projects, also update the index-based placeholder labels in Projects.jsx.
 // src/data/project.js
-import projectVideo1 from '../assets/CMPSC442-Project-3-Q1.mp4';
-import projectVideo2 from '../assets/CMPSC442-Project-3-Q2.mp4';
-import projectVideo3 from '../assets/CMPSC443-Project-3-Q1.mp4';
+import projectVideo1 from "../assets/CMPSC442-Project-3-Q1.mp4";
+import projectVideo2 from "../assets/CMPSC442-Project-3-Q2.mp4";
+import projectVideo3 from "../assets/CMPSC443-Project-3-Q1.mp4";
 
 export const projectsData = [
   {
@@ -12,7 +17,7 @@ export const projectsData = [
     Performance is evaluated by tracking the win rate over multiple episodes.`,
     video: projectVideo1,
     poster: undefined,
-    tags: ['Class Project', 'AI']
+    tags: ["Class Project", "AI"],
   },
   {
     title: "FrozenLake Reinforcement Learning (Model-Based RL)",
@@ -21,7 +26,7 @@ export const projectsData = [
      optimal policy and evaluated it by running multiple episodes to measure the win rate.`,
     video: projectVideo2,
     poster: undefined,
-    tags: ['Class Project', 'AI']
+    tags: ["Class Project", "AI"],
   },
   {
     title: "Tic-Tac-Toe AI with Minimax Algorithm",
@@ -30,24 +35,24 @@ export const projectsData = [
      AI with alpha-beta pruning, custom win-condition logic, and prebuilt Pygame interface.`,
     video: projectVideo3,
     poster: undefined,
-    tags: ['Class Project', 'AI']
+    tags: ["Class Project", "AI"],
   },
   {
     title: "JUAL : Web-based POS System",
     description: `I developed a web-based Point of Sale (POS) system called JUAL using PHP, MySQL, HTML, CSS, and JavaScript.
     The system allows users to manage products, process sales transactions, and generate reports. It features a user-friendly interface and secure authentication.`,
     video: undefined,
-    poster: undefined,   
-    tags: ['Class Project', 'Web Development']
+    poster: undefined,
+    tags: ["Class Project", "Web Development"],
   },
   {
-    title: "GRADECHAIN: Blockchain-based GPA Tracking System",  
+    title: "GRADECHAIN: Blockchain-based GPA Tracking System",
     description: `I developed a blockchain-based student grading system called GRADECHAIN using Solidity, Ethereum, and Web3.js.
     The system allows teachers to securely record and manage student grades on the blockchain, ensuring transparency and immutability. 
     It features a web interface for teachers and students to interact with the system.`,
     video: undefined,
     poster: undefined,
-    tags: ['Class Project', 'Web Development', 'Blockchain']
+    tags: ["Class Project", "Web Development", "Blockchain"],
   },
   {
     title: "NittanyAI: PennState Auction Platform",
@@ -55,8 +60,8 @@ export const projectsData = [
     The platform allows users to list items for auction, place bids, and manage their auctions. It features a modern UI and real-time bidding functionality.`,
     video: undefined,
     poster: undefined,
-    tags: ['Class Project', 'Web Development']
-  }
+    tags: ["Class Project", "Web Development"],
+  },
 ];
 
 export default projectsData;

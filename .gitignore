@@ -1,3 +1,4 @@
+# Git ignores these generated and local files. Source files should stay tracked.
 # Logs
 logs
 *.log

@@ -1,5 +1,7 @@
-import { useTheme } from '../context/ThemeContext';
-import './DarkModeToggle.css';
+// Optional theme button. App does not currently render this component.
+// It must be inside ThemeProvider. Dark colors also need to be defined in index.css.
+import { useTheme } from "../context/ThemeContext";
+import "./DarkModeToggle.css";
 
 const DarkModeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -8,8 +10,8 @@ const DarkModeToggle = () => {
     <button
       className="dark-mode-toggle"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? (
         <svg
@@ -53,4 +55,3 @@ const DarkModeToggle = () => {
 };
 
 export default DarkModeToggle;
-

@@ -1,0 +1,19 @@
+/* Space between skill groups and styles for their headings and number ranges.
+   Individual skill cards are styled in components/ChromaGrid.css. */
+.skill-group + .skill-group {
+  margin-top: 3.5rem;
+}
+.skill-group > h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.skill-group > h3 span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--muted-color);
+}

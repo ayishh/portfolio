@@ -1,3 +1,4 @@
+# Files below are skipped by the code formatter. Generated files should stay here.
 node_modules
 dist
 build

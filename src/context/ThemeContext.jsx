@@ -1,11 +1,14 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+// Stores the theme choice and adds a dark class to the HTML element.
+// The current Soft UI page only has light colors; this state alone will not recolor it.
+// To add dark mode, define dark color variables in index.css and render DarkModeToggle.
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
@@ -13,27 +16,27 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     // Check localStorage first, then default to light mode
-    const saved = localStorage.getItem('theme');
+    const saved = localStorage.getItem("theme");
     if (saved) {
-      return saved === 'dark';
+      return saved === "dark";
     }
     return false; // Default to light mode
   });
 
   useEffect(() => {
     // Update localStorage when theme changes
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
     // Add/remove dark class to document root
     if (isDark) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
 
   const toggleTheme = () => {
-    setIsDark(prev => !prev);
+    setIsDark((prev) => !prev);
   };
 
   return (
@@ -42,4 +45,3 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
