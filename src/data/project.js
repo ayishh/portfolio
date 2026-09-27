@@ -12,7 +12,7 @@ import projectVideo3 from "../assets/CMPSC443-Project-3-Q1.mp4";
 
 export const projectsData = [
   {
-    title: "Fatin & Fazreen: Wedding Photo Sharing",
+    title: "Wedding Photo Sharing",
     number: 7,
     year: 2026,
     description:
