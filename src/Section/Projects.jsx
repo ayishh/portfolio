@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import "./Projects.css";
 import { projectsData } from "../data/project.js";
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }) => {
   const videoRef = useRef(null);
 
   // Start a muted preview when the card is hovered or reached with the keyboard.
@@ -46,15 +46,25 @@ const ProjectCard = ({ project, index }) => {
           >
             Your browser does not support video playback.
           </video>
+        ) : project.preview === "wedding" ? (
+          // A small visual preview based on the wedding site's landing page.
+          <div className="project-wedding-preview" aria-hidden="true">
+            <div className="wedding-preview-panel">
+              <span className="wedding-preview-names">Fatin &amp; Fazreen</span>
+              <span className="wedding-preview-title">Dari Lensa Tetamu</span>
+              <span className="wedding-preview-divider">&#10022;</span>
+              <span className="wedding-preview-copy">
+                Kenangan indah, dari perspektif anda.
+              </span>
+              <span className="wedding-preview-upload">Upload</span>
+            </div>
+          </div>
         ) : (
-          // Short names and the diamond below depend on the data array order. Update them if reordered.
+          // Use project content so the preview stays correct when cards are sorted.
           <div className="project-placeholder" aria-hidden="true">
-            <span>
-              {["", "", "", "JUAL", "GRADECHAIN", "NittanyAI"][index] ||
-                project.title.split(":")[0]}
-            </span>
+            <span>{project.title.split(":")[0].trim()}</span>
             <span className="placeholder-symbol">
-              {index === 4 ? "\u25c7" : "</>"}
+              {project.tags.includes("Blockchain") ? "\u25c7" : "</>"}
             </span>
             <span>Designed & developed</span>
           </div>
@@ -62,7 +72,8 @@ const ProjectCard = ({ project, index }) => {
       </div>
       <div className="project-content">
         <div className="project-meta">
-          <span>PROJECT {String(index + 1).padStart(2, "0")}</span>
+          <span>PROJECT {String(project.number).padStart(2, "0")}</span>
+          <span>{project.year}</span>
         </div>
         <h3>{project.title}</h3>
         <div className="project-tags">
@@ -73,6 +84,18 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
         <p>{project.description}</p>
+        {/* Add url to a project in the data file to show its live website link. */}
+        {project.url && (
+          <a
+            className="soft-button project-site-link"
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${project.title} (opens in a new tab)`}
+          >
+            Visit website <span aria-hidden="true">&#8599;</span>
+          </a>
+        )}
       </div>
     </article>
   );
@@ -95,9 +118,12 @@ const Projects = ({ projects = projectsData }) => (
       </p>
     </div>
     <div className="projects-grid">
-      {projects.map((project, index) => (
-        <ProjectCard key={project.title} project={project} index={index} />
-      ))}
+      {/* Show project numbers from highest to lowest, regardless of data array order. */}
+      {[...projects]
+        .sort((a, b) => b.number - a.number)
+        .map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
     </div>
   </section>
 );

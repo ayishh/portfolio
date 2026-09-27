@@ -6,7 +6,7 @@ This site uses React, Vite, and plain CSS. Start with the files below.
 
 - `src/Section/Intro.jsx`: your name, introduction, interests, and hero buttons.
 - `src/assets/profile.jpg`: your portrait. If you use a different filename, update the import in `Intro.jsx`. Update the image width, height, and alt text too.
-- `src/data/project.js`: project titles, descriptions, videos, and tags. Copy an object to add a project. Keep titles unique.
+- `src/data/project.js`: project titles, numbers, years, descriptions, videos, and tags. Copy an object to add a project. Give it a unique `title` and numeric `number`, plus a numeric `year`. Cards display from highest number to lowest (7 to 1), regardless of their order in this file.
 - `src/data/skill.js`: language and framework cards. Copy an object to add a skill. Keep titles unique. `url` makes the card a link; `image` supplies its icon.
 - `src/Section/Skills.jsx`: skill section headings. The number ranges are written by hand; update them if the lists change.
 - `src/App.jsx`: header, navigation, section order, and footer. Links such as `#projects` must match the destination section's `id`.
@@ -34,7 +34,7 @@ Keep focus outlines for keyboard users. The reduced-motion rules in `index.css` 
 
 `src/Section/Projects.jsx` controls playback. Hover or keyboard focus starts the video; leaving pauses and resets it. Videos are muted, loop, and have no visible controls. Add the `controls` attribute to the video tag if you want player buttons. Touchscreens do not have hover, so consider controls if you need reliable touch playback.
 
-The placeholder short names and diamond symbol in `Projects.jsx` depend on the project array positions. Update those if you reorder projects without videos.
+Placeholder names come from the project title before the colon. Projects with the `Blockchain` tag show a diamond symbol, so reordering cards does not change their previews.
 
 ## Current and older components
 
